@@ -1,5 +1,8 @@
-resource "aws_instance" "example" {
-       instance_type = "t2.micro"
-       ami = "ami-0730362f1c4289cf4" 
-       region = "eu-west-2"
+resource "aws_instance" "myweb" {
+  ami           = "ami-0730362f1c4289cf4"
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "AkuDev"
+  }
 }
