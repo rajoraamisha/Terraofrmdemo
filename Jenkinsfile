@@ -3,12 +3,12 @@ pipeline {
   stages {
         stage("Plan") {
             steps {
-                sh {"terraform init"}
-                sh {"terraform plan"}
+                sh ("terraform init")
+                sh ("terraform plan")
             }
            stage("Apply") {
             steps {
-                sh {"terraform action"}
+                sh ("terraform action")
                 
             }
     
