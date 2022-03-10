@@ -1,25 +1,15 @@
 pipeline {
-  agent any
+    agent any
   stages {
-    stage('Terraform init'){
-      steps {
-        sh 'Terraform init'
-      }
-    }
+        stage('Plan') {
+            steps {
+                sh 'terraform init -input=false'
+                sh 'terraform plan -input=false'
+            }
+           stage('Apply') {
+            steps {
+                sh 'terraform apply -input=false'
+                
+            }
     
-    stage('Terraform Plan') { 
-      steps {
-       
-        sh 'terraform plan -no-color -out=create.tfplan' 
-      }
-    }
-   
-    stage ('Terraform Apply') {
-      steps {
-      sh "terraform --version"
-      }
-    }
-  
-
-  }
 }
