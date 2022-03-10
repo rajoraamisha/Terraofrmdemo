@@ -1,14 +1,14 @@
 pipeline {
     agent any
   stages {
-        stage('Plan') {
+        stage("Plan") {
             steps {
-                sh 'terraform init -input=false'
-                sh 'terraform plan -input=false'
+                sh {"terraform init"}
+                sh {"terraform plan"}
             }
-           stage('Apply') {
+           stage("Apply") {
             steps {
-                sh 'terraform apply -input=false'
+                sh {"terraform action"}
                 
             }
     
